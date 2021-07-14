@@ -1,0 +1,65 @@
+\appendix
+
+\section*{附\ \ \ \ \ \ \ \ 录}
+
+\addcontentsline{toc}{section*}{附\ \ \ \ \ \ \ \ 录}
+
+\renewcommand{\thesubsection}{附录\Alph{subsection}}
+
+\newcommand{\appendsection}[1]{\titleformat*{\subsection}{}\zihao{-4}\heiti\subsection{} 
+ {\centering\paragraph{#1}\mbox{}\\}\songti}
+\newcommand{\appendchn}[1]{\titleformat*{\subsection}{}\zihao{-4}\heiti\subsection*{中文译文\Alph{subsection}}
+ {\centering\paragraph{#1}\mbox{}\\}\songti}
+
+
+\appendsection{Analysis on Risk Prevention of Tax Planning in Real Estate Development Enterprise}
+	Tax planning refers that taxpayer deals with financial, operating, organizing and other business proceedings in range of tax law so as to delay or alleviate enterprise taxes and realize the largest benefit after paying taxes.\par
+	
+\appendchn{分析纳税筹划在房地产开发企业的风险防范}
+	税收筹划是指纳税人在税法的范围内处理财务，经营，组织其他商业活动的过程，以拖延或减轻企业的税收和实现纳税后的最大的效益。\par
+\clearpage
+
+\appendsection{Analysis on Risk Prevention of Tax Planning in Real Estate Development Enterprise}
+Tax planning refers that taxpayer deals with financial, operating, organizing and other business proceedings in range of tax law so as to delay or alleviate enterprise taxes and realize the largest benefit after paying taxes.\par
+
+\appendchn{分析纳税筹划在房地产开发企业的风险防范}
+税收筹划是指纳税人在税法的范围内处理财务，经营，组织其他商业活动的过程，以拖延或减轻企业的税收和实现纳税后的最大的效益。\par
+\clearpage
+\appendsection{代\ \ \ \ \ \ \ \ 码}
+%取消章节编号，重置计数器
+\counterwithout{lstlisting}{section}
+\setcounter{lstlisting}{0}
+%附录代码风格
+\lstset{
+	basicstyle          =   \sffamily,          % 基本代码风格
+	keywordstyle        =   \bfseries,          % 关键字风格
+	commentstyle        =   \rmfamily\itshape,  % 注释的风格，斜体
+	stringstyle         =   \ttfamily,  % 字符串风格
+	flexiblecolumns,                % 别问为什么，加上这个
+	numbers             =   left,   % 行号的位置在左边
+	showspaces          =   false,  % 是否显示空格，显示了有点乱，所以不现实了
+	numberstyle         =   \zihao{-5}\ttfamily,    % 行号的样式，小五号，tt等宽字体
+	showstringspaces    =   false,
+	captionpos          =   t,      % 这段代码的名字所呈现的位置，t指的是top上面
+	frame               =   lrtb,   % 显示边框
+	framerule           =   0.5pt,  % 边框宽度
+}
+
+\lstdefinestyle{Python}{
+	language        =   Python, % 语言选Python
+	basicstyle      =   \zihao{-5}\ttfamily,
+	numberstyle     =   \zihao{-5}\ttfamily,
+	keywordstyle    =   \color{blue},
+	keywordstyle    =   [2] \color{teal},
+	stringstyle     =   \color{magenta},
+	commentstyle    =   \color{red}\ttfamily,
+	breaklines      =   true,   % 自动换行，建议不要写太长的行
+	columns         =   fixed,  % 如果不加这一句，字间距就不固定，很丑，必须加
+	basewidth       =   0.5em,
+}
+\subsubsection*{1.情感分析}
+\lstinputlisting[
+style       =   Python,
+caption     =   {qg.py},
+label       =   {qg.py}
+]{images/qg.py}

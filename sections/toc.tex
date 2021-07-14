@@ -1,0 +1,40 @@
+%目录样式
+% \renewcommand{\cftdot}{\ensuremath{\ast}}
+\titlecontents{section}
+              [1em]
+              {\heiti\zihao{-4}}%
+              {\contentslabel{1em}}%
+              {}%
+              {\titlerule*[0.32pc]{$\cdot$}\contentspage}
+\titlecontents{subsection}
+              [3.5em]
+              {\songti\zihao{-4}}%
+              {\contentslabel{1.7em}}%
+              {}%
+              {\titlerule*[0.32pc]{$\cdot$}\contentspage}
+\titlecontents{subsubsection}
+              [6em]
+              {\songti\zihao{-4}}%
+              {\contentslabel{2.5em}}%
+              {}%
+              {\titlerule*[0.32pc]{$\cdot$}\contentspage}
+\titlecontents{section*}
+              [0em]
+              {\heiti\zihao{-4}}%
+              {\contentslabel{1em}}%
+              {}%
+              {\titlerule*[0.32pc]{$\cdot$}\contentspage}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\newcommand\mydot[1]{\scalebox{#1}{.}}
+\renewcommand\cftdot{\mydot{0.8}}
+\renewcommand\cftdotsep{1}
+
+%\captionsetup[contentsname={\zihao{3}目\ \ \ \ \ \ \ \ 录}]
+\renewcommand{\contentsname}{\zihao{3}目\ \ \ \ \ \ \ \ 录}
+\renewcommand{\cftsecfont}{\heiti\zihao{-4}} %设置section条目的字体
+\renewcommand{\cftsecfont}{\heiti} %设置section条目的字体
+%\renewcommand{\cftsecpagefont}{\normalfont}
+\renewcommand{\cftsubsecfont}{\songti\zihao{-4}} %设置subsection条目的字体
+\rhead{}
+\tableofcontents
+\cleardoublepage

@@ -1,0 +1,148 @@
+%!TEX program = xelatex
+\documentclass[11pt,punct,twoside]{ctexart}
+\usepackage{titling}
+\usepackage[a4paper, left=3cm, right=2cm, top=3cm, bottom=2.5cm]{geometry}
+\usepackage{fancyhdr, graphicx, xpatch, layout}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{pdfpages}
+\usepackage{float}
+%\usepackage{cite}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{tabularx}
+\usepackage{chngcntr}
+\usepackage{listings}
+\usepackage{cleveref}
+\usepackage{subfigure}
+\usepackage[titles,subfigure]{tocloft}
+\usepackage[labelsep=space]{caption}
+\usepackage[numbers,super,square,comma,sort,compress]{natbib}
+\usepackage{lmodern}
+\usepackage{indentfirst}
+\usepackage{xtab,booktabs}
+\usepackage[version=4]{mhchem}
+\usepackage{array}
+\usepackage{fontspec}
+\usepackage{caption}
+\usepackage{xeCJK}
+\usepackage{color}
+\usepackage{longtable}
+%\usepackage{longtabu}
+\usepackage{tabu}
+\usepackage{makecell}
+%\usepackage{showframe}
+
+% 微分算子
+\newcommand*{\dif}{\mathop{}\!\mathrm{d}}
+
+% 参考文献行间距
+\setlength{\bibsep}{-1pt}
+%设置字体
+\setmainfont{Times New Roman} % set all eng font
+\songti%正文宋体
+\zihao{-4}%正文小四号
+\ctexset{section={format+={\mdseries\zihao{3}\heiti},aftername = \hspace{0.5em}}}%章标题 三号黑体
+\ctexset{subsection={format+={\mdseries\zihao{-4}\heiti},aftername = \hspace{0.5em}}}%节标题 小四号黑体
+\ctexset{subsubsection={format+={\mdseries\zihao{-4}\heiti},aftername = \hspace{0.5em}}}%级标题 小四号黑体  
+
+%宋体伪粗体
+\setCJKfamilyfont{zhsong}[AutoFakeBold = {2.17}]{SimSun}
+\renewcommand*{\songti}{\CJKfamily{zhsong}}
+%设置间距
+\renewcommand{\baselinestretch}{1.62}
+%\linespread{1.5}
+\titlespacing{\section}{0bp}{0.5em}{0.5em}
+\titlespacing{\subsection}{0bp}{0.5em}{0.5em}
+\titlespacing{\subsubsection}{0bp}{0.5em}{0.5em}
+%\setlength{\parskip}{0.5\baselineskip}
+% 图表公式每章重新编号
+\counterwithin{table}{section}
+\counterwithin{figure}{section}
+\counterwithin{equation}{section}
+
+%表标题与内容间距
+\setlength{\abovecaptionskip}{0.1cm}
+%列表样式
+\setlist[enumerate,1]{label=（\arabic*）, wide, labelsep=0.5em, itemsep=0ex, topsep=0pt, partopsep=0pt, parsep=0pt}
+\setlist[enumerate,2]{label=（\alph*） , wide, labelsep=0.5em, itemsep=0ex, topsep=0pt, partopsep=0pt, parsep=0pt,itemindent=5em}
+
+%正文代码块lstlisting样式
+\def\inline{\lstinline[basicstyle=\ttfamily,breaklines=true]}
+\lstset{
+	basicstyle=\ttfamily\zihao{5},
+	xleftmargin=2em,
+	%xrightmargin=2em,
+    breaklines=true,
+    frame={tb},
+    belowcaptionskip=0.6em,
+    framerule=1.5pt
+}
+
+%引用样式
+\renewcommand{\lstlistingname}{代码清单}
+\crefname{listing}{代码清单}{代码清单}
+\crefname{table}{表}{表}
+\Crefname{table}{表}{表}
+\crefname{figure}{图}{图}
+\Crefname{figure}{图}{图}
+
+%自定义命令
+\newcommand{\scite}[1]{\textsuperscript{\cite{#1}}} %cite样式
+\DeclareCaptionFormat{myformat}{\zihao{5}\selectfont#1#2#3}
+\captionsetup{format=myformat}
+\captionsetup{labelsep=quad}%图表号与图表名之间空两格
+
+%------------------文档开始------------------
+\begin{document}
+\pagestyle{empty}
+\include{sections/cover}
+\include{sections/statement}
+
+%页眉页脚
+\pagestyle{fancy}
+%\setlength{\voffset}{3pt}
+\lhead{}
+\chead{\zihao{4}\heiti 东北大学秦皇岛分校本科生毕业设计（论文）} %\bfseries 不用加粗
+%\textcolor{red/blue/green/black/white/cyan/magenta/yellow}{text}
+\rhead{}
+\lfoot{}
+\cfoot{\zihao{5}\thepage}
+\rfoot{}
+
+\setlength{\voffset}{-10mm}                        
+\setlength{\topmargin}{0mm}
+\setlength{\headheight}{6mm}
+\setlength{\headsep}{9mm}
+\setlength{\footskip}{7.5mm}
+\pagenumbering{Roman} %目录页码为罗马数字
+\setcounter{page}{1}%页码重新计数
+
+%正文代码块章节编号
+\counterwithin{lstlisting}{section}
+
+\include{sections/abstract}
+\include{sections/toc}
+\pagenumbering{arabic} %正文页码为阿拉伯数字
+\include{sections/introduction}
+\include{sections/Experimentalmaterials}
+\include{sections/Micro-organizationanalysis}
+\include{sections/Mechanicsperformanceanalysis}
+
+\include{sections/conclusion}
+\include{sections/thanks}
+
+\bibliographystyle{gbt7714-2005}
+%\bibliographystyle{unsrt}
+\nocite{*}
+\addcontentsline{toc}{section*}{参考文献}
+
+\renewcommand\bibnumfmt[1]{\makebox[0.9cm][l]{[#1]}}
+\setlength{\bibhang}{0em}
+
+\bibliography{citation}
+
+\include{sections/appendix}
+
+\end{document}
