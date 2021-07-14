@@ -7,7 +7,7 @@ Windows10 系统下的TeXstudio-3.1.2和Texlive-2021。
 
 #### tips
 * 毕设封面是参照word模板制作的，与word模板的有些不同，可以自行修改或者单独将word模板封面导出PDF版添加引用。
-* 参考文献样式为GB/T 7714-2005，其支类型中的硕士学位论文标识在bibtex文件中是masterthesis，而不是mastersthesis。
+* 参考文献样式为GB/T 7714-2005，所支持的硕士学位论文参考文献标识在bibtex文件中是masterthesis，而不是mastersthesis。
 
 #### 参考资料
 * [LaTeX 里「添加程序代码」的完美解决方案](https://zhuanlan.zhihu.com/p/65441079)
